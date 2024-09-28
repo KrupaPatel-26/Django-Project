@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <ul>
+        <!-- Loop through each post in the 'posts' context variable -->
+        {% for post in posts %}
+            <li>
+                <!-- Display the blog post title as a link to the post's detail page -->
+                <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+                <!-- Display the author's name -->
+                <p>by {{ post.author }}</p>
+            </li>
+        {% empty %}
+            <!-- Display a message if there are no posts -->
+            <li>No posts available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
